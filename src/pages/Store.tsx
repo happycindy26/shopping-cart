@@ -15,7 +15,6 @@ function Store() {
       </Row>
     </>
   )
-  
 }
 
 export default Store

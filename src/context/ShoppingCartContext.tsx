@@ -71,7 +71,6 @@ export function ShoppingCartProvider({children}:ShoppingCartProviderProps) {
     })
   }
 
-
   return (
     <ShoppingCartContext.Provider 
       value={{

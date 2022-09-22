@@ -1,7 +1,6 @@
-import {Card, Button} from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { useShoppingCart } from '../context/ShoppingCartContext'
-import {formatCurrency} from '../utilities/formatCurrency'
-
+import { formatCurrency } from '../utilities/formatCurrency'
 
 type StoreItemProps = {
   id: number,
@@ -38,11 +37,9 @@ function StoreItem({id, name, price, imgUrl}: StoreItemProps) {
             </div>
             <Button onClick={() => removeFromCart(id)} variant="outline-danger" size="sm">Remove</Button>
           </div>
-          
-        }
+          }
         </div>
       </Card.Body>
-     
     </Card>
   )
 }
