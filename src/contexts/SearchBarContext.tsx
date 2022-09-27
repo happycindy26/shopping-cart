@@ -6,6 +6,7 @@ type SearchBarProviderProps = {
 }
 type SearchBarContextProps = {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  // handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
   searchText: string
   filteredItems: StoreItem[]
 }
@@ -29,6 +30,9 @@ export const SearchBarProvider = ({children}: SearchBarProviderProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value.toLocaleLowerCase())
   }
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  // }
   useEffect(() => {
     const newFilteredItem = storeItems.filter(item => {
       return item.name.toLocaleLowerCase().includes(searchText)})
@@ -40,6 +44,5 @@ export const SearchBarProvider = ({children}: SearchBarProviderProps) => {
       {children}
     </searchBarContext.Provider>
   )
-
 }
 
