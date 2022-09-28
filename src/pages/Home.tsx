@@ -7,7 +7,7 @@ function Home() {
       style={{backgroundImage: "url(imgs/half.jpg)", backgroundPosition: "top" }}
     >
       <NavLink to="/store">
-        <Button variant="outline-primary" className="m-5 fs-2" style={{fontFamily: "Niconne", borderRadius: "5rem"}}>Shop now</Button>
+        <Button variant="primary" className="m-5 fs-2" style={{fontFamily: "Niconne", borderRadius: "5rem"}}>Shop now</Button>
       </NavLink>
     </div>
   )
