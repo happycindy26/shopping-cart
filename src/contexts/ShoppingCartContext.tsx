@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState, ReactNode } from 'react'
+import {createContext, useContext, useState, ReactNode } from 'react'
 import {ShoppingCart} from '../components/ShoppingCart'
 
 type ShoppingCartProviderProps = {

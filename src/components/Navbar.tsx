@@ -1,6 +1,6 @@
 import { Form, Button, Nav, Navbar as NavbarBs } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 import { useSearchBar } from '../contexts/SearchBarContext'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
@@ -33,10 +33,12 @@ function Navbar() {
       <FontAwesomeIcon style={{position: "absolute", top: ".5rem", right: "1rem" }} icon={faMagnifyingGlass}/>
     </InputGroup> */}
     </NavbarBs.Collapse>
-    
-    <Button variant="prmary" style={{border: "none"}}>
-      <FontAwesomeIcon icon={faUser} size="xl" />
-    </Button>
+
+    <Nav.Link to='/user' as={NavLink}>
+      <Button variant="outline-dark rounded-circle" style={{border: "none"}}>
+        <FontAwesomeIcon icon={faUser} size="xl" />
+      </Button>
+    </Nav.Link>
     <Button 
       onClick={openCart}
       style={{position: "relative", margin:"1rem", border: "none"}}
