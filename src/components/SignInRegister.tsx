@@ -23,8 +23,13 @@ function SignInRegister() {
   //   }
   //   setJustifyActive(value);
   // };
-  const {justifyActive, name, email, password, handleJustifyClick, nameHandleChange, emailHandleChange, passwordHandleChange} = useSignInRegister()
+
+  // first method for signIn/register
+  // const {justifyActive, name, email, password, handleJustifyClick, nameHandleChange, emailHandleChange, passwordHandleChange} = useSignInRegister()
   
+  //second method for signIn/register
+  const {signIn, register, justifyActive, handleJustifyClick, signInHandleChange, registerHandleChange} = useSignInRegister()
+ 
   return (
     <MDBContainer className="p-3 my-5 d-flex flex-column w-50 bg-light">
       <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
@@ -60,8 +65,8 @@ function SignInRegister() {
             </div>
             <p className="text-center mt-3">or:</p>
           </div>
-          <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' name='email' value={email} onChange={emailHandleChange} />
-          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name='password' value={password} onChange={passwordHandleChange} />
+          <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' name='email' value={signIn.email} onChange={signInHandleChange} />
+          <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name='password' value={signIn.password} onChange={signInHandleChange} />
           <div className="d-flex justify-content-between mx-4 mb-4">
             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
             <a href="!#">Forgot password?</a>
@@ -93,10 +98,10 @@ function SignInRegister() {
             </div>
             <p className="text-center mt-3">or:</p>
           </div>
-          <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text' name='name' value={name} onChange={nameHandleChange} />
+          <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text' name='name' value={register.name} onChange={registerHandleChange} />
           {/* <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='text'/> */}
-          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' name='email' value={email} onChange={emailHandleChange} />
-          <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' name='password' value={password} onChange={passwordHandleChange} />
+          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' name='email' value={register.email} onChange={registerHandleChange} />
+          <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' name='password' value={register.password} onChange={registerHandleChange} />
           <div className='d-flex justify-content-center mb-4'>
             <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
           </div>
