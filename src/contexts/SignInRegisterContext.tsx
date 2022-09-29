@@ -7,9 +7,11 @@ type SignInRegisterContextProps = {
   name: string
   email: string
   password: string
+  justifyActive: string
   nameHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   emailHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   passwordHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleJustifyClick: (value: string) => void
   // handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
 }
 
@@ -20,10 +22,17 @@ export const useSignInRegister = () => {
 }
 
 export const SignInRegisterProvider = ({children}: SignInRegisterProviderProps) => {
+  const [justifyActive, setJustifyActive] = useState('tab1');;
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const handleJustifyClick = (value:string) => {
+    if (value === justifyActive) {
+      return;
+    }
+    setJustifyActive(value);
+  };
   const nameHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
   }
@@ -38,7 +47,7 @@ export const SignInRegisterProvider = ({children}: SignInRegisterProviderProps) 
   // }
 
   return(
-    <signInRegisterContext.Provider value={{name, email, password, nameHandleChange, emailHandleChange, passwordHandleChange}}>
+    <signInRegisterContext.Provider value={{justifyActive, name, email, password, handleJustifyClick, nameHandleChange, emailHandleChange, passwordHandleChange}}>
       {children}
     </signInRegisterContext.Provider>
   )
