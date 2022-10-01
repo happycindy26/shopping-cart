@@ -3,10 +3,13 @@ import Home from './pages/Home';
 import Store from './pages/Store';
 import About from './pages/About';
 import Navbar from './components/Navbar';
-import User from './pages/User';
+import UserSignIn from './pages/UserSignIn';
+import UserRegister from './pages/UserRegister';
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 import { SearchBarProvider } from './contexts/SearchBarContext';
 import { SignInRegisterProvider } from './contexts/SignInRegisterContext';
+import Fruits from './pages/Fruits';
+import Juices from './pages/Juices';
 
 function App() {
   return (
@@ -18,7 +21,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
             <Route path="/about" element={<About />} />
-            <Route path="/user" element={<User />} />
+            <Route path="/signin" element={<UserSignIn />} />
+            <Route path="/register" element={<UserRegister />} />
+            <Route path="/fruits" element={<Fruits /> } />
+            <Route path="/juices" element={<Juices />} />
           </Routes>
         </SignInRegisterProvider>
       </SearchBarProvider>

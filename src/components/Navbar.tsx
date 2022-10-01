@@ -1,6 +1,6 @@
-import { Form, Button, Nav, Navbar as NavbarBs } from 'react-bootstrap'
+import { InputGroup, Form, Button, Nav, NavDropdown, Navbar as NavbarBs } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
 import { useSearchBar } from '../contexts/SearchBarContext'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
@@ -9,15 +9,22 @@ function Navbar() {
   const {openCart, cartQuantity} = useShoppingCart()
   const {searchText, handleChange} = useSearchBar()
   return(  
-  <NavbarBs collapseOnSelect expand="md" sticky="top"  className='bg-light'>
+  <NavbarBs collapseOnSelect expand="md" sticky="top"  style={{backgroundColor: "lightBlue"}} className='bg-light'>
     <NavbarBs.Toggle aria-controls="responsive-navbar-nav" />
     <NavbarBs.Collapse id="responsive-navbar-nav">
     <Nav className='me-auto m-3'>
       <Nav.Link to='/' as={NavLink}>Home</Nav.Link>
       <Nav.Link to='/store' as={NavLink}>Store</Nav.Link>
       <Nav.Link to='/about' as={NavLink}>About</Nav.Link>
+      <NavDropdown title="Category" id="basic-nav-dropdown">
+        <NavDropdown.Item href='/store'>All products</NavDropdown.Item>
+        <NavDropdown.Item href='/fruits'>
+          Fruit
+        </NavDropdown.Item>
+        <NavDropdown.Item href="/juices">Juice</NavDropdown.Item>
+      </NavDropdown>
     </Nav>
-    <Form className="d-flex" style={{marginRight: "2rem"}}>
+    {/* <Form className="d-flex" style={{marginRight: "2rem"}}>
       <Form.Control
         type="search"
         placeholder="Search"
@@ -26,16 +33,23 @@ function Navbar() {
         value={searchText}
         onChange={handleChange}
       />
-      {/* <Button variant="outline-success" size='sm'>Search</Button> */}
+      <Button variant="outline-success" size='sm'></Button>
+    </Form> */}
+    <Form className="d-flex" style={{margin: "0 1rem"}}>
+      <InputGroup className="d-flex" >
+        <Form.Control style={{outline: "none", boxShadow: "none", border: "1px solid #212529"}} size="sm" type="search" placeholder='Search' 
+          value={searchText}
+          onChange={handleChange}
+        />
+        <Button variant="outline-dark" size='sm' >
+          <FontAwesomeIcon  icon={faMagnifyingGlass}/>
+        </Button>
+      </InputGroup>
     </Form>
-    {/* <InputGroup className="d-flex" style={{margin: "0 5rem"}}>
-      <Form.Control className="me-2" style={{ position: "relative"}} size="sm" type="search" value="search" />
-      <FontAwesomeIcon style={{position: "absolute", top: ".5rem", right: "1rem" }} icon={faMagnifyingGlass}/>
-    </InputGroup> */}
     </NavbarBs.Collapse>
 
-    <Nav.Link to='/user' as={NavLink}>
-      <Button variant="outline-dark rounded-circle" style={{border: "none"}}>
+    <Nav.Link to='/signin' as={NavLink}>
+      <Button variant="outline-dark rounded-circle" style={{border: "none", marginLeft: "1rem"}}>
         <FontAwesomeIcon icon={faUser} size="xl" />
       </Button>
     </Nav.Link>

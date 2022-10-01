@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React, { createContext, ReactNode, useContext,  useState } from 'react';
+//import { useNavigate } from 'react-router-dom';
 
 type SignInRegisterProviderProps = {
     children: ReactNode
@@ -16,10 +18,12 @@ type SignInRegisterContextProps = {
 
   //second method for signIn/register:
   signIn: SignInProps
+  // signInData: SignInProps
   register: RegisterProps
-  signInHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  registerHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  // handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  signInHandleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  registerHandleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  signInHandleSubmit: (event:React.FormEvent<HTMLFormElement>) => void
+  registerHandleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
 }
 type SignInProps = {
   email: string
@@ -38,6 +42,7 @@ export const useSignInRegister = () => {
 }
 
 export const SignInRegisterProvider = ({children}: SignInRegisterProviderProps) => {
+  //let navigate = useNavigate()
   const [justifyActive, setJustifyActive] = useState('tab1');
   const handleJustifyClick = (value:string) => {
     if (value === justifyActive) {
@@ -62,19 +67,54 @@ export const SignInRegisterProvider = ({children}: SignInRegisterProviderProps) 
   //second method for signIn/register:
   const [signIn, setSignIn] = useState<SignInProps>({email: '', password: ''})
   const [register, setRegister] = useState<RegisterProps>({name: '', email: '', password: ''})
-  const signInHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSignIn({...signIn, [e.target.name]: e.target.value})
+  const signInHandleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setSignIn({...signIn, [event.target.name]: event.target.value})
   }
-  const registerHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRegister({...register, [e.target.name]: e.target.value})
+  const registerHandleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setRegister({...register, [event.target.name]: event.target.value})
   }
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  // }
+  const signInHandleSubmit = (event: React.FormEvent<HTMLFormElement>):void => {
+    event.preventDefault();
+    // const signInData = {
+    //   email: signIn.email,
+    //   password: signIn.password
+    // }
+    
+    // axios.post('http://localhost:80443/api/signin', signInData);
+    // console.log(signInData)
+  }
+  const registerHandleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    const registerData = {
+      name: register.name,
+      email: register.email,
+      password: register.password
+    }
+    console.log(registerData)
+    
+    axios.post('http://localhost:80443/api/register', registerData);
+   
+    // axios.post(`insert.php`, signInData)
+    //  .then(res => console.log(res.data))
+    // axios.post('http://localhost/shopping-cart/insert.php', signInData)
+    // .then((result) => {
+    //   if (result.data.Status === 'Invalid') {
+    //     alert('Invalid user')
+    //   }
+    //   else {
+    //     navigate(`/dashboard`)
+    //   }
+    // })
+
+    //Production level code for sending/receiving data
+    // axios.post('https://shopping-cart-local.com/shopping-cart/insert.php', signInData)
+    //   .then(res => console.log(res.data))
+    //???setSignIn({})
+  }
 
   return(
     // <signInRegisterContext.Provider value={{justifyActive, name, email, password, handleJustifyClick, nameHandleChange, emailHandleChange, passwordHandleChange}}>
-    <signInRegisterContext.Provider value={{signIn, register, justifyActive, handleJustifyClick, signInHandleChange, registerHandleChange}}>  
+    <signInRegisterContext.Provider value={{signIn, register, justifyActive, handleJustifyClick, signInHandleChange, registerHandleChange, signInHandleSubmit, registerHandleSubmit}}>  
       {children}
     </signInRegisterContext.Provider>
   )
