@@ -1,11 +1,16 @@
 import { Row, Col } from 'react-bootstrap'
 import { fruits } from '../data/fruits'
 import StoreItem from '../components/StoreItem'
+import { useSearchBar } from '../contexts/SearchBarContext'
+import SearchItem from '../components/SearchItem'
 
-const Fruits = () => {
+const Fruit = () => {
+  const {searchText, filteredItems} = useSearchBar()
   return(
     <>
-      <h5 className='text-center mt-5'>Fruits:</h5>
+      {searchText && filteredItems ? <SearchItem /> : 
+      <>
+        <h5 className='text-center mt-5'>Fruit</h5>
         <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-3">
           { fruits.map((item) => (
             <Col key={item.id}>
@@ -13,8 +18,10 @@ const Fruits = () => {
             </Col>))
           }
         </Row>
+      </>
+      }
     </>
   )
 }
 
-export default Fruits
+export default Fruit

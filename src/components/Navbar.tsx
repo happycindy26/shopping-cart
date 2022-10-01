@@ -1,7 +1,7 @@
 import { InputGroup, Form, Button, Nav, NavDropdown, Navbar as NavbarBs } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { useSearchBar } from '../contexts/SearchBarContext'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
 
@@ -17,9 +17,9 @@ function Navbar() {
       <Nav.Link to='/store' as={NavLink}>Store</Nav.Link>
       <Nav.Link to='/about' as={NavLink}>About</Nav.Link>
       <NavDropdown title="Category" id="basic-nav-dropdown">
-        <NavDropdown.Item href="./store">All products</NavDropdown.Item>
-        <NavDropdown.Item href="./fruits">Fruit</NavDropdown.Item>
-        <NavDropdown.Item href="./juices">Juice</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/store">All products</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/fruit">Fruit</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="juice">Juice</NavDropdown.Item>
       </NavDropdown>
     </Nav>
     {/* <Form className="d-flex" style={{marginRight: "2rem"}}>
