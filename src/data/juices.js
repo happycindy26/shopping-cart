@@ -19,9 +19,9 @@ export const juices = [
   },
   {
     id: 24,
-    name: "Avocado mix juice",
+    name: "Pinky juice",
     price: 5.99,
-    imgUrl: "imgs/avocado.jpg"
+    imgUrl: "imgs/pinky.jpg"
   },
   {
     id: 25,
