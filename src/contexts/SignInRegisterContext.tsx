@@ -6,8 +6,8 @@ type SignInRegisterProviderProps = {
     children: ReactNode
 }
 type SignInRegisterContextProps = {
-    justifyActive: string
-    handleJustifyClick: (value: string) => void
+  // justifyActive: string
+  // handleJustifyClick: (value: string) => void
   // first method for signIn/register:
   // name: string
   // email: string
@@ -33,6 +33,7 @@ type RegisterProps = {
   name: string
   email: string
   password: string
+  confirmPassword: string
 }
 
 const signInRegisterContext = createContext({} as SignInRegisterContextProps)
@@ -43,13 +44,13 @@ export const useSignInRegister = () => {
 
 export const SignInRegisterProvider = ({children}: SignInRegisterProviderProps) => {
   //let navigate = useNavigate()
-  const [justifyActive, setJustifyActive] = useState('tab1');
-  const handleJustifyClick = (value:string) => {
-    if (value === justifyActive) {
-      return;
-    }
-    setJustifyActive(value);
-  };
+  // const [justifyActive, setJustifyActive] = useState('tab1');
+  // const handleJustifyClick = (value:string) => {
+  //   if (value === justifyActive) {
+  //     return;
+  //   }
+  //   setJustifyActive(value);
+  // };
   // first method for signIn/register:
   // const [name, setName] = useState('')
   // const [email, setEmail] = useState('')
@@ -66,7 +67,7 @@ export const SignInRegisterProvider = ({children}: SignInRegisterProviderProps) 
 
   //second method for signIn/register:
   const [signIn, setSignIn] = useState<SignInProps>({email: '', password: ''})
-  const [register, setRegister] = useState<RegisterProps>({name: '', email: '', password: ''})
+  const [register, setRegister] = useState<RegisterProps>({name: '', email: '', password: '', confirmPassword: ''})
   const signInHandleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSignIn({...signIn, [event.target.name]: event.target.value})
   }
@@ -88,7 +89,8 @@ export const SignInRegisterProvider = ({children}: SignInRegisterProviderProps) 
     const registerData = {
       name: register.name,
       email: register.email,
-      password: register.password
+      password: register.password,
+      confirmPassword: register.confirmPassword
     }
     console.log(registerData)
     
@@ -114,7 +116,7 @@ export const SignInRegisterProvider = ({children}: SignInRegisterProviderProps) 
 
   return(
     // <signInRegisterContext.Provider value={{justifyActive, name, email, password, handleJustifyClick, nameHandleChange, emailHandleChange, passwordHandleChange}}>
-    <signInRegisterContext.Provider value={{signIn, register, justifyActive, handleJustifyClick, signInHandleChange, registerHandleChange, signInHandleSubmit, registerHandleSubmit}}>  
+    <signInRegisterContext.Provider value={{signIn, register, signInHandleChange, registerHandleChange, signInHandleSubmit, registerHandleSubmit}}>  
       {children}
     </signInRegisterContext.Provider>
   )

@@ -39,8 +39,7 @@ function SignIn() {
            </Link> 
         </p>
     <Container className="p-3 my-3 d-flex flex-column w-50 bg-light">
-    <Form onSubmit={signInHandleSubmit} id="signin" >
-        
+      <Form onSubmit={signInHandleSubmit} id="signin" > 
         <Form.Group className="mb-3" controlId="formEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" name='email' autoComplete='current-email' value={signIn.email} onChange={signInHandleChange}/>
@@ -48,25 +47,16 @@ function SignIn() {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-
         <Form.Group className="mb-3" controlId="formPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" name='password' autoComplete='current-password' value={signIn.password} onChange={signInHandleChange}/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
         <Button variant="primary" type="submit">
           Sign In
         </Button>
-        <p className="text-center mt-3">Not a member? 
-           <Link to="/register">
-           <Button form="signin"  variant="outline-primary" style={{border: "none"}}>Register</Button>
-           </Link> 
-        </p>
       </Form>
-      </Container>
-      </>
+    </Container>
+    </>
 
     // <MDBContainer className="p-3 my-5 d-flex flex-column w-50 bg-light">
     //   <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
