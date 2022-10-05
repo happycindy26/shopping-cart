@@ -6,7 +6,7 @@ function Register() {
  
   return (
     <>
-    <h1 className='text-center mt-5'>Register</h1>
+    <h1 className='text-center mt-3'>Register</h1>
     <Container className="p-3 my-5 d-flex flex-column w-50 bg-light">
       <Form onSubmit={registerHandleSubmit} id="register">
         <Form.Group className="mb-3" controlId="formBasicName">
