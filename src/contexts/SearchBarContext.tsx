@@ -1,6 +1,5 @@
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import { fruits } from '../data/fruits'
-import { juices } from '../data/juices'
+import StoreItems from '../data/items.json'
 
 type SearchBarProviderProps = {
     children: ReactNode
@@ -34,7 +33,7 @@ export const SearchBarProvider = ({children}: SearchBarProviderProps) => {
   //   e.preventDefault();
   // }
   useEffect(() => {
-    const newFilteredItem = fruits.concat(juices).filter(item => {
+    const newFilteredItem = StoreItems.filter(item => {
       return item.name.toLocaleLowerCase().includes(searchText)})
       setFilteredItems(newFilteredItem)
   }, [searchText])

@@ -14,12 +14,11 @@ function Navbar() {
     <NavbarBs.Collapse id="responsive-navbar-nav">
     <Nav className='me-auto m-3'>
       <Nav.Link to='/' as={NavLink}>Home</Nav.Link>
-      <Nav.Link to='/store' as={NavLink}>Store</Nav.Link>
       <Nav.Link to='/about' as={NavLink}>About</Nav.Link>
-      <NavDropdown title="Category" id="basic-nav-dropdown">
+      <NavDropdown title="Store" id="basic-nav-dropdown">
         <NavDropdown.Item as={Link} to="/store">All products</NavDropdown.Item>
-        <NavDropdown.Item as={Link} to="/fruit">Fruit</NavDropdown.Item>
-        <NavDropdown.Item as={Link} to="juice">Juice</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/store/fruit">Fruit</NavDropdown.Item>
+        <NavDropdown.Item as={Link} to="/store/juice">Juice</NavDropdown.Item>
       </NavDropdown>
     </Nav>
     {/* <Form className="d-flex" style={{marginRight: "2rem"}}>

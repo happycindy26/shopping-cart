@@ -1,11 +1,12 @@
 import { Row, Col } from 'react-bootstrap'
-import { fruits } from '../data/fruits'
+import StoreItems from '../data/items.json'
 import StoreItem from '../components/StoreItem'
 import { useSearchBar } from '../contexts/SearchBarContext'
 import SearchItem from '../components/SearchItem'
 
 const Fruit = () => {
   const {searchText, filteredItems} = useSearchBar()
+  const fruits = StoreItems.filter(item => item.category === 'fruit')
   return(
     <>
       {searchText && filteredItems ? <SearchItem /> : 

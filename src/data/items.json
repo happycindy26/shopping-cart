@@ -1,32 +1,80 @@
 [
   {
     "id": 1,
+    "category": "fruit",
     "name": "Apple",
     "price": 4.99,
-    "imgUrl": "imgs/apple.jpg"
+    "imgUrl": "/imgs/apple.jpg"
   },
   {
     "id": 2,
+    "category": "fruit",
     "name": "Banana",
     "price": 3,
-    "imgUrl": "imgs/banana.jpg"
+    "imgUrl": "/imgs/banana.jpg"
   },
   {
     "id": 3,
+    "category": "fruit",
     "name": "Cherry",
     "price": 10,
-    "imgUrl": "imgs/cherry.jpg"
+    "imgUrl": "/imgs/cherry.jpg"
   },
   {
     "id": 4,
+    "category": "fruit",
     "name": "Grape",
     "price": 3.5,
-    "imgUrl": "imgs/grape.jpg"
+    "imgUrl": "/imgs/grape.jpg"
   },
   {
     "id": 5,
+    "category": "fruit",
     "name": "Orange",
     "price": 2.5,
-    "imgUrl": "imgs/orange.jpg"
+    "imgUrl": "/imgs/orange.jpg"
+  },
+  {
+    "id": 21,
+    "category": "juice",
+    "name": "Kiwi juice",
+    "price": 6.99,
+    "imgUrl": "/imgs/kiwi.jpg"
+  },
+  {
+    "id": 22,
+    "category": "juice",
+    "name": "Orange juice",
+    "price": 5,
+    "imgUrl": "/imgs/orange-juice.jpg"
+  },
+  {
+    "id": 23,
+    "category": "juice",
+    "name": "Lemon lime juice",
+    "price": 6,
+    "imgUrl": "/imgs/lemonlime.jpg"
+  },
+  {
+    "id": 24,
+    "category": "juice",
+    "name": "Pinky juice",
+    "price": 5.99,
+    "imgUrl": "/imgs/pinky.jpg"
+  },
+  {
+    "id": 25,
+    "category": "juice",
+    "name": "Summer romance",
+    "price": 8.99,
+    "imgUrl": "/imgs/summer-romance.jpg"
+  },
+  {
+    "id": 26,
+    "category": "juice",
+    "name": "Kiwi mix juice",
+    "price": 6.99,
+    "imgUrl": "/imgs/kiwimix.jpg"
   }
 ]
+

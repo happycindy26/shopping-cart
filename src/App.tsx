@@ -23,8 +23,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/signin" element={<UserSignIn />} />
             <Route path="/register" element={<UserRegister />} />
-            <Route path="/fruit" element={<Fruit /> } />
-            <Route path="/juice" element={<Juice />} />
+            <Route path="/store/fruit" element={<Fruit /> } />
+            <Route path="/store/juice" element={<Juice />} />
           </Routes>
         </SignInRegisterProvider>
       </SearchBarProvider>
