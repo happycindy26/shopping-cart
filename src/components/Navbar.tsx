@@ -45,7 +45,7 @@ function Navbar() {
     </Form>
     </NavbarBs.Collapse>
 
-    <Nav.Link to='/signin' as={NavLink}>
+    <Nav.Link to='/user' as={NavLink}>
       <Button variant="outline-dark rounded-circle" style={{border: "none", marginLeft: "1rem"}}>
         <FontAwesomeIcon icon={faUser} size="xl" />
       </Button>
